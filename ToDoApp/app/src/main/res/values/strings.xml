@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DataBase</string>
+    <string name="add_new_event">Add New Event</string>
+    <string name="enter_desc">Enter Description</string>
+    <string name="enter_priority">Enter Priority</string>
+    <string name="select_priority">Priority</string>
+    <string name="add_contact">Add to Contacts</string>
+    <string-array name="priority_array">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+</resources>

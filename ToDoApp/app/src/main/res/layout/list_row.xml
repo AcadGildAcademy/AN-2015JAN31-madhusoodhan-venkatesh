@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/list_row_id">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:background="@drawable/abc_list_selector_holo_light"
+        android:padding="5dp" >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_desc"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_priority"
+            android:layout_below="@+id/tv_desc"
+            android:layout_alignBottom="@+id/tv_planned"
+            android:textSize="10dp"
+            android:layout_toLeftOf="@+id/tv_planned"
+            android:layout_toStartOf="@+id/tv_planned" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_planned"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_desc"
+            android:layout_toEndOf="@+id/tv_desc" />
+
+    </RelativeLayout>
+
+</LinearLayout>
