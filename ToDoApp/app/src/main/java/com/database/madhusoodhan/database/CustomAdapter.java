@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
-    /**
+/**
      * ****** Adapter class extends with BaseAdapter and implements with OnClickListener ***********
      */
     public class CustomAdapter extends ArrayAdapter<EventEntity> {
@@ -19,17 +19,17 @@ import java.util.ArrayList;
          * ******** Declare Used Variables ********
          */
         private Context context;
-        private ArrayList<EventEntity> data;
-        private static LayoutInflater inflater = null;
+        private List<EventEntity> data;
 
-        EventEntity tempValues = null;
+
+
         int i = 0;
 
         /**
          * **********  CustomAdapter Constructor ****************
          */
-        public CustomAdapter(Context context, ArrayList<EventEntity> data) {
-            super(context,R.layout.list_row,data);
+        public CustomAdapter(Context context,int row, List<EventEntity> data) {
+            super(context,row,data);
 
             /********** Take passed values **********/
             Log.d("Inside CustomAdapter ::" , "constructor");
@@ -64,10 +64,10 @@ import java.util.ArrayList;
             View vi = convertView;
             ViewHolder holder;
 
-            if (convertView == null) {
+            if (vi== null) {
 
                 /***********  Layout inflator to call external xml layout () ***********/
-                inflater = (LayoutInflater) context.
+               LayoutInflater inflater = (LayoutInflater) context.
                         getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 /****** Inflate tabitem.xml file for each row ( Defined below ) *******/
                 vi = inflater.inflate(R.layout.list_row, null);
@@ -81,19 +81,17 @@ import java.util.ArrayList;
 
                 /************  Set holder with LayoutInflater ************/
                 vi.setTag(holder);
-            } else {
+            }else {
                 holder = (ViewHolder)vi.getTag();
-               // holder.text.setText("No Data");
             }
 
-                tempValues = data.get(position);
+                EventEntity tempValues = data.get(position);
 
                 /************  Set Model values in Holder elements ***********/
 
                 holder.text.setText(tempValues.getDescription());
                 holder.text1.setText(tempValues.getPriority());
                 holder.text2.setText(tempValues.getPlanDate());
-
 
             Log.d("pushpa",tempValues.getDescription());
 
@@ -103,6 +101,22 @@ import java.util.ArrayList;
 
             return vi;
         }
+
+
+    @Override
+    public int getCount() {
+
+        if(data!=null)
+             return data.size();
+        else
+            return 0;
+    }
+
+    public void updateList(List<EventEntity> newList) {
+        data.clear();
+        data.addAll(newList);
+        this.notifyDataSetChanged();
+    }
 
      /*   @Override
         public void onClick(View v) {

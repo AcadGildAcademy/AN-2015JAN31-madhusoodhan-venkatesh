@@ -23,6 +23,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by madhusoodhan on 24-Feb-15.
@@ -31,16 +32,11 @@ public class AddEventActivity extends ActionBarActivity {
 
 
     final Context context = this;
-
+    CustomAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_to_do);
-
-        setAdapterList();
-    }
-
-    public void setAdapterList(){
 
         ArrayList<EventEntity> eventList = getEventList();
 
@@ -48,11 +44,13 @@ public class AddEventActivity extends ActionBarActivity {
 
         Resources res = getResources();
 
-        CustomAdapter adapter = new CustomAdapter(AddEventActivity.this,eventList);
+        adapter = new CustomAdapter(this,R.layout.list_row,eventList);
 
-        list.setAdapter(adapter);
-
+        if (list != null && adapter!=null)  {
+            list.setAdapter(adapter);
+        }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,10 +99,8 @@ public class AddEventActivity extends ActionBarActivity {
                 db.addContact(event);
                 int count = db.getCount();
 
-                Toast.makeText(getApplicationContext(), description + " added success", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), priority + " added success", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), planDate + " added success", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), count + " rows are there", Toast.LENGTH_SHORT).show();
+                List<EventEntity> updatedTasks = getEventList();
+                adapter.updateList(updatedTasks);
 
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -154,7 +150,7 @@ public class AddEventActivity extends ActionBarActivity {
 
     public ArrayList<EventEntity> getEventList(){
 
-        DatabaseHandler db = new DatabaseHandler(context);
+        DatabaseHandler db = new DatabaseHandler(this);
 
         return db.getAllEvents();
     }
