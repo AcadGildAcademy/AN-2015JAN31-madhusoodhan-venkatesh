@@ -13,7 +13,7 @@ import com.database.madhusoodhan.sportsnews.Adapter.TabsPagerAdapter;
 /**
  * Created by madhusoodhan on 18-Mar-15.
  */
-public class NewsActivity extends FragmentActivity implements TabListener,ViewPager.OnPageChangeListener {
+public class NewsActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, ActionBar.TabListener {
 
     private ViewPager viewPager;
     private TabsPagerAdapter adapter;
@@ -42,21 +42,7 @@ public class NewsActivity extends FragmentActivity implements TabListener,ViewPa
         viewPager.setOnPageChangeListener(this);
     }
 
-    @Override
-    public void onTabSelected(android.support.v7.app.ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 
-    }
-
-
-    @Override
-    public void onTabUnselected(android.support.v7.app.ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
-    }
-
-    @Override
-    public void onTabReselected(android.support.v7.app.ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
-    }
 
     @Override
     public void onPageScrolled(int i, float v, int i2) {
@@ -64,7 +50,28 @@ public class NewsActivity extends FragmentActivity implements TabListener,ViewPa
     }
 
     @Override
-    public void onPageSelected(int i) {
+    public void onPageSelected(int position) {
+        actionBar.setSelectedNavigationItem(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int i) {
+
+    }
+
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, android.app.FragmentTransaction ft) {
+        viewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, android.app.FragmentTransaction ft) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, android.app.FragmentTransaction ft) {
 
     }
 }

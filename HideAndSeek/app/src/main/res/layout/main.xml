@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Welcome to Hide and seek app"
+            android:id="@+id/tv_welcome"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.31" />
+
+        <Button
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:text="Hide"
+            android:id="@+id/bt_hideseek"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.02" />
+    </LinearLayout>
+
+</LinearLayout>
