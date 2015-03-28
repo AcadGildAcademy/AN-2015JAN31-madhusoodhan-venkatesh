@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.89">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="45dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/enter_card_number"
+                android:id="@+id/tv_card_num"
+                android:layout_weight="0.99" />
+
+            <EditText
+                android:layout_width="126dp"
+                android:layout_height="49dp"
+                android:background="@drawable/custom_edittext"
+                android:id="@+id/et_card_num" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="45dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/enter_yearly_int_rate"
+                android:id="@+id/tv_int_rate"
+                android:layout_weight="0.99" />
+
+            <EditText
+                android:layout_width="126dp"
+                android:layout_height="49dp"
+                android:background="@drawable/custom_edittext"
+                android:id="@+id/et_int_rate" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="58dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/enter_min_payment"
+                android:id="@+id/tv_min_pay"
+                android:layout_weight="0.99" />
+
+            <EditText
+                android:layout_width="126dp"
+                android:layout_height="49dp"
+                android:background="@drawable/custom_edittext"
+                android:id="@+id/et_min_pay" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.21" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="45dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/final_card_bal"
+                android:id="@+id/tv_card_bal"
+                android:layout_weight="0.99" />
+
+            <EditText
+                android:layout_width="126dp"
+                android:layout_height="49dp"
+                android:background="@drawable/custom_edittext"
+                android:id="@+id/et_card_bal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="45dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/months_remaining"
+                android:id="@+id/tv_months_rem"
+                android:layout_weight="0.99" />
+
+            <EditText
+                android:layout_width="126dp"
+                android:layout_height="49dp"
+                android:background="@drawable/custom_edittext"
+                android:id="@+id/et_months_rem" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="45dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/int_paid"
+                android:id="@+id/tv_int_paid"
+                android:layout_weight="0.99" />
+
+            <EditText
+                android:layout_width="126dp"
+                android:layout_height="49dp"
+                android:focusable="false"
+                android:background="@drawable/custom_edittext"
+                android:id="@+id/et_int_paid" />
+
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="147dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.15">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COMPUTE"
+            android:id="@+id/bt_compute"
+            android:layout_alignParentTop="true"
+            android:background="#0ffff0"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:shadowColor="#ff0f5fff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLEAR"
+            android:id="@+id/bt_clear"
+            android:background="#0ffff0"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

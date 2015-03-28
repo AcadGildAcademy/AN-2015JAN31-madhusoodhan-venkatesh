@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="enter_card_number">Enter Card Number</string>
+    <string name="enter_yearly_int_rate">Enter Yearly Interest Rate (%)</string>
+    <string name="enter_min_payment">Enter Minimum Payment (Rs)</string>
+    <string name="final_card_bal">Final Card Balance</string>
+    <string name="months_remaining">Months Remaining</string>
+    <string name="int_paid">Interest Paid will be (Rs)</string>
+
+
+</resources>
