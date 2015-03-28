@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">App2</string>
+    <string name="enter_name">Enter the UserName</string>
+    <string name="enter_pass">Enter the Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <!--<string name="app_name">App2</string> -->
+</resources>

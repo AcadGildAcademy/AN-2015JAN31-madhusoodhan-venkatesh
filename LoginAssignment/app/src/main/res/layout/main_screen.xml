@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear1"
+    android:background="#ff366bff"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"></LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/enter_name"
+        android:ems="10"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:id="@+id/et_username"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/lightblue"
+        android:textColor="@color/blue" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/enter_pass"
+        android:ems="10"
+        android:background="@color/lightblue"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:id="@+id/et_password"
+        android:layout_gravity="center_horizontal"
+        android:phoneNumber="true"
+        android:textColor="@color/blue" />
+
+    <Button
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_signin"
+        android:text="@string/sign_in"
+        android:layout_gravity="center_horizontal" />
+
+    <RadioButton
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:text="male"
+        android:id="@+id/radioButton"
+        android:layout_gravity="center_horizontal"
+        android:checked="false" />
+
+    <ImageView
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1.42"
+        android:src="@drawable/nature"
+        android:visibility="visible" />
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.madhusoodhan.app2">
+
+
+    <item android:id="@+id/settings"
+        android:icon="@android:drawable/arrow_down_float"
+        android:title="settings"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/cut"
+        android:icon="@android:drawable/btn_minus"
+        android:title="zoomout" />
+
+    <item android:id="@+id/copy"
+        android:icon="@android:drawable/ic_dialog_alert"
+        android:title="alert" />
+
+
+
+
+</menu>
