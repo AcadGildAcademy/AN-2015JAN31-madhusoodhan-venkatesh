@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.database.madhusoodhan.imdb.activities">
+
+    <uses-sdk android:minSdkVersion="9" android:maxSdkVersion="20"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:icon="@drawable/icon" android:theme="@style/AppTheme">
+
+        <activity android:name=".UpcomingMoviesActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MovieDetailsActivity" android:label="Movie Details"></activity>
+
+
+    </application>
+
+</manifest>
