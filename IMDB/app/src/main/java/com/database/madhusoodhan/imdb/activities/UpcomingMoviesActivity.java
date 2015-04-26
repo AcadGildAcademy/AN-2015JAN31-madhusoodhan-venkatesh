@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +16,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 
+import com.database.madhusoodhan.imdb.adapters.CustomAdapters;
 import com.database.madhusoodhan.imdb.constants.ConstantTags;
 import com.database.madhusoodhan.imdb.entities.MovieDetailsEntity;
 
@@ -24,48 +27,48 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by madhusoodhan on 10-Apr-15.
  */
-public class UpcomingMoviesActivity extends ListActivity {
+public class UpcomingMoviesActivity extends ActionBarActivity {
 
     private ProgressDialog pDialog;
-
     private MovieDetailsEntity movieDetailsEntity;
     JSONArray movies = null;
-
-    ArrayList<HashMap<String, MovieDetailsEntity>> contactList; //WHY LIST OF HASHMAPS SHOULD BE THERE
+    ArrayList<MovieDetailsEntity> movieList; //WHY LIST OF HASHMAPS SHOULD BE THERE
+    CustomAdapters adapter;
+    ListView list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_upcoming_movies);
+        setContentView(R.layout.welcome_screen);
 
-        contactList = new ArrayList<HashMap<String, MovieDetailsEntity>>();
+        movieList = new ArrayList<MovieDetailsEntity>();
 
-        ListView lvUpcomingMovies = getListView();
+        list = (ListView)findViewById(R.id.ls_movies);
 
-        lvUpcomingMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      /*  list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 //MovieDetailsEntity movieDetailsEntit
-                String name = ((TextView) view.findViewById(R.id.tv_name)).getText().toString();
-                String mob = ((TextView) view.findViewById(R.id.tv_mobile)).getText().toString();
-                String email = ((TextView) view.findViewById(R.id.tv_email)).getText().toString();
+                String title = ((TextView) view.findViewById(R.id.tv_title)).getText().toString();
+                String releaseDate = ((TextView) view.findViewById(R.id.tv_releasedate)).getText().toString();
 
                 // Starting single contact activity
                 Intent in = new Intent(getApplicationContext(), MovieDetailsActivity.class);
 
-                movieDetailsEntity =  new MovieDetailsEntity(name,mob,email);
+                movieDetailsEntity =  new MovieDetailsEntity(title,releaseDate);
 
                 in.putExtra("MOVIE_DETAILS", movieDetailsEntity);
 
                 startActivity(in);
 
             }
-        });
+        });*/
 
         new GetMovies().execute();
 
@@ -99,7 +102,7 @@ private class GetMovies extends AsyncTask<Void, Void, Void> {
                 JSONObject jsonObj = new JSONObject(jsonStr);
 
                 // Getting JSON Array node
-                movies = jsonObj.getJSONArray(ConstantTags.TAG_CONTACTS);
+                movies = jsonObj.getJSONArray(ConstantTags.TAG_MOVIES);
 
                 // looping through All Contacts
                 for (int i = 0; i < movies.length(); i++) {
@@ -108,12 +111,7 @@ private class GetMovies extends AsyncTask<Void, Void, Void> {
 
                     MovieDetailsEntity movieDetails = new MovieDetailsEntity(jsonMovies);
 
-                    HashMap<String, MovieDetailsEntity> contact = new HashMap<String, MovieDetailsEntity>();
-
-                    contact.put("MOVIE", movieDetails);
-
-                    // adding contact to contact list
-                    contactList.add(contact);
+                    movieList.add(movieDetails);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -130,16 +128,26 @@ private class GetMovies extends AsyncTask<Void, Void, Void> {
         if (pDialog.isShowing())
             pDialog.dismiss();
 
+        adapter = new CustomAdapters(UpcomingMoviesActivity.this,R.layout.movie_details,movieList);
 
-        ListAdapter adapter = new SimpleAdapter(
-                UpcomingMoviesActivity.this, contactList,
-                R.layout.movie_details, new String[] { ConstantTags.TAG_NAME, ConstantTags.TAG_EMAIL,
-                ConstantTags.TAG_PHONE_MOBILE }, new int[] { R.id.tv_name,R.id.tv_mobile, R.id.tv_email });
-
-        setListAdapter(adapter);
+        if(movieList != null && adapter!=null){
+            list.setAdapter(adapter);
+        }
     }
 
 }
+
+
+    public HashMap<String,String> getContactTags(MovieDetailsEntity movieDetails ){
+
+        HashMap<String, String> contact = new HashMap<>();
+        contact.put(ConstantTags.TAG_ID, movieDetails.getId());
+        contact.put(ConstantTags.TAG_TITLE, movieDetails.getTitle());
+        contact.put(ConstantTags.TAG_RELEASE_DATE, movieDetails.getReleaseDate());
+
+        return contact;
+
+    }
 
 }
 

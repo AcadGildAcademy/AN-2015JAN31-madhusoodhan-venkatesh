@@ -14,9 +14,8 @@ import com.database.madhusoodhan.imdb.entities.MovieDetailsEntity;
 public class MovieDetailsActivity extends Activity {
 
     // JSON node keys
-    private static final String TAG_NAME = "name";
-    private static final String TAG_EMAIL = "email";
-    private static final String TAG_PHONE_MOBILE = "mobile";
+   // private static final String TAG_TITLE = "original_title";
+    //private static final String TAG_RELEASE_DATE = "release_date";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +30,11 @@ public class MovieDetailsActivity extends Activity {
         //String mobile = in.getStringExtra(TAG_PHONE_MOBILE);
 
         // Displaying all values on the screen
-        TextView lblName = (TextView) findViewById(R.id.tv_name);
-        TextView lblEmail = (TextView) findViewById(R.id.tv_mobile);
-        TextView lblMobile = (TextView) findViewById(R.id.tv_email);
+        TextView lblTitle = (TextView) findViewById(R.id.tv_title);
+        TextView lblReleaseDate = (TextView) findViewById(R.id.tv_releasedate);
 
-        lblName.setText(movie.getName());
-        lblEmail.setText(movie.getEmail());
-        lblMobile.setText(movie.getMobile());
+        lblTitle.setText(movie.getTitle());
+        lblReleaseDate.setText(movie.getReleaseDate());
+
     }
 }

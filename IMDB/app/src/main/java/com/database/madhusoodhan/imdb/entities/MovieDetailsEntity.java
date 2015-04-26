@@ -14,42 +14,8 @@ public class MovieDetailsEntity implements Serializable {
 
 
     private String id;
-    private String name;
-    private String email;
-    private String mobile;
-
-    public MovieDetailsEntity(JSONObject jsonObj) throws JSONException {
-        name = jsonObj.getString(ConstantTags.TAG_NAME);
-        email = jsonObj.getString(ConstantTags.TAG_EMAIL);
-
-        JSONObject j = jsonObj.getJSONObject(ConstantTags.TAG_PHONE);
-        mobile = j.getString(ConstantTags.TAG_PHONE_MOBILE);
-
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    private String title;
+    private String releaseDate;
 
     public String getId() {
         return id;
@@ -59,9 +25,29 @@ public class MovieDetailsEntity implements Serializable {
         this.id = id;
     }
 
-    public MovieDetailsEntity(String name, String mobile, String email){
-        this.name = name;
-        this.mobile = mobile;
-        this.email = email;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public MovieDetailsEntity(JSONObject jsonObj) throws JSONException {
+        title = jsonObj.getString(ConstantTags.TAG_TITLE);
+        releaseDate = jsonObj.getString(ConstantTags.TAG_RELEASE_DATE);
+    }
+
+    public MovieDetailsEntity(String title, String releaseDate){
+        this.title = title;
+        this.releaseDate = releaseDate;
     }
 }
